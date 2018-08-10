@@ -1,14 +1,106 @@
+
+@font-face {
+    font-family: 'bookman';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('/public/font/BOOKOS.TTF') format('ttf');
+}
 .todo-list-container{
-
-    width:300px;
-    height: 300px;
-
+    width: 40%;
+    height: 31%;
+    margin-left: 5%; 
+    margin-top: 6%;
 }
 
 .todo-list-option-container{
+    align-self: center;
+   
+}
 
+.todo-list-title{
+    border: 1px aliceblue solid;
+    border-radius: 7px;
+    background-color: #67b1e7;
+    margin-bottom: 12px;
+    padding-left: 32px;
+    color:#0b037c;
+    font-family: bookman;
 }
 
 .todo-list-form-container{
+    border: 1px aliceblue solid;
+    border-radius: 7px;
+    height: 34px;
+    background-color: azure;
+}
+
+.todo-list-ol{
+    
+    border-radius: 7px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.todo-list-ol li{
+    border: 1px aliceblue solid;
+    border-radius: 7px;
+    height: 33px;
+    margin-top: 7px;    
+    background-color: azure;
+    padding-top: 10px;
+    font-size: 20px;
+    padding-left: 35px;
+    color: #50368c;
+}
+
+.todo-list-inputs{
+
+    height: 100%;
+    margin-top: 1%;
+    float: right;
+    padding-right: 2%;
+}
+
+.todo-list-item{
+    border: 1px aliceblue solid;
+    border-radius: 7px; 
+}
+
+.todo-list-item text{
+    margin-top:2px;
+    margin-left: 20px;
+}
+
+
+.todo-list-li-button{
+    border-radius: 48%;
+    float:right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+    font-size: 18px;
+    font-weight: bolder;
+    border: none;
+    margin-right: 6px;
+    background-color:#e34f4f;
+    width: 25px;
+    height: 26px;
     
 }
+
+.todo-list-inputs button{
+    width: 150px;
+    margin-left: 9px;
+    height: 25px;
+    background-color: #4373c1;
+    border-radius: 7px;
+    color:white;
+    border: none;
+}
+.todo-list-inputs input{
+    width: 346px;
+    border-radius: 7px;
+    border: 2px #2972e8 inset;
+}
+

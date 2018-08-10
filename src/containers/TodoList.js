@@ -6,7 +6,7 @@ export default class Todo extends React.Component{
     constructor(props){
       super(props)
       this.state = {
-        name: 'Lista Tareas por Hacer',
+        name: 'Lista de tareas por hacer',
         count: 0,
         tasks: ['hacer programa', 'variar tareas', 'reporte errores']
       }
@@ -45,24 +45,28 @@ export default class Todo extends React.Component{
     render(){
       const tasks = (this.state.tasks||[]).map((task,index)=>(
         <li>
-          {task} <button name="removeTask" onClick={event=>this.handleClickIndex(index,event)}>x</button>
+          {task} <button name="removeTask"  className="todo-list-li-button" onClick={event=>this.handleClickIndex(index,event)}>X</button>
         </li>
       ))
       return (
         <div className="todo-list-container">
+          <div className="todo-list-title">
           <h2>{this.state.name}</h2>
+          </div>
           <div className="todo-list-option-container">
-            <ol>
+            <ul className="todo-list-ol">
               {tasks}
               {
                 this.state.task &&
-                <li>{this.state.task}</li>
+                <li className="todo-list-item">{this.state.task}</li>
               }
-            </ol>
+            </ul>
             <div className="todo-list-form-container">
               <form name="sendTask" onSubmit={this.handleSubmit}>
+                <div className="todo-list-inputs">
                 <input name="task" value={this.state.task} onChange={this.handleChange}/>
-                <button type="submit" name="addTask" onClick={this.handleClick}>Agregar</button>
+                <button type="submit" name="addTask" onClick={this.handleClick}>Agregar Tarea</button>
+                </div>
               </form>
             </div>
           </div>
