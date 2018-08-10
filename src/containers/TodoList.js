@@ -49,9 +49,9 @@ export default class Todo extends React.Component{
         </li>
       ))
       return (
-        <div class="todo-list-container">
+        <div className="todo-list-container">
           <h2>{this.state.name}</h2>
-          <div>
+          <div className="todo-list-option-container">
             <ol>
               {tasks}
               {
@@ -59,7 +59,7 @@ export default class Todo extends React.Component{
                 <li>{this.state.task}</li>
               }
             </ol>
-            <div>
+            <div className="todo-list-form-container">
               <form name="sendTask" onSubmit={this.handleSubmit}>
                 <input name="task" value={this.state.task} onChange={this.handleChange}/>
                 <button type="submit" name="addTask" onClick={this.handleClick}>Agregar</button>
