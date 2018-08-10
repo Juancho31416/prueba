@@ -1,8 +1,12 @@
-class Todo extends React.Component{
+import React, { Component } from "react";
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./TodoList.css";
+
+export default class Todo extends React.Component{
     constructor(props){
       super(props)
       this.state = {
-        name: 'Lista TODO',
+        name: 'Lista Tareas por Hacer',
         count: 0,
         tasks: ['hacer programa', 'variar tareas', 'reporte errores']
       }
@@ -45,8 +49,8 @@ class Todo extends React.Component{
         </li>
       ))
       return (
-        <div>
-          <h1>{this.state.name}</h1>
+        <div class="todo-list-container">
+          <h2>{this.state.name}</h2>
           <div>
             <ol>
               {tasks}
@@ -58,7 +62,7 @@ class Todo extends React.Component{
             <div>
               <form name="sendTask" onSubmit={this.handleSubmit}>
                 <input name="task" value={this.state.task} onChange={this.handleChange}/>
-                <button type="submit" name="addTask" onClick={this.handleClick}>Add</button>
+                <button type="submit" name="addTask" onClick={this.handleClick}>Agregar</button>
               </form>
             </div>
           </div>
@@ -67,7 +71,5 @@ class Todo extends React.Component{
     }
   }
   
-  ReactDOM.render(
-    <Todo/>,
-    document.getElementById('app')
-  );
+  
+  ;
