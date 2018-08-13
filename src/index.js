@@ -9,9 +9,9 @@ import WebFont from 'webfontloader';
 
 
 ReactDOM.render(
-  <Login />,
+  //<Login />,
   //<Todo />,
-  //<Register />,
+  <Register />,
   document.getElementById('root')
  
 );
