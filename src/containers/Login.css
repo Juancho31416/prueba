@@ -1,4 +1,8 @@
 @media all and (min-width: 480px) {
+
+  
+
+
     .Login {
       padding: 60px 0;
     }
@@ -55,6 +59,7 @@
       background-image: url("http://www.kinyu-z.net/data/wallpapers/250/1578604.jpg");
       background-repeat: no-repeat;
       background-size: cover;
+   
     }
 
     .LoginTitleClass{
@@ -62,4 +67,7 @@
        margin-left: 35%;
        color: #b3b2e6;
     }
+
+
+    
   }
