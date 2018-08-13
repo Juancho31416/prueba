@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { configureFakeBackend } from "../helpers/fake-backend";
 
 import "./Login.css";
 
@@ -14,6 +15,7 @@ export default class Login extends React.Component {
           submitted: false
   };
   this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   validateForm() {
@@ -33,16 +35,24 @@ export default class Login extends React.Component {
 
   handleSubmit (e){ 
     e.preventDefault();
-    this.setState({ submitted: true });
-    const { email, password } = this.state;
     
+    this.setState({ submitted: true });
+    const { username, password } = this.state;
+   
 
+    if (username && password) {
+     let response = configureFakeBackend( this.state ,'Authenticate');
+     console.log('respuesta', response);
+    }
+
+  
   }
   
   render() {
     const { email, password, submitted } = this.state;
     return (
        <div className="Login">
+       <div className="LoginTitleClass" > Log-In </div>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" name="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
@@ -75,6 +85,14 @@ export default class Login extends React.Component {
             
           >
             Login
+          </Button>
+
+          <Button
+            block
+            bsSize="large"
+              
+          >
+            Register
           </Button>
           </div>
         </form>

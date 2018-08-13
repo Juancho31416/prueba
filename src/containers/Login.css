@@ -57,5 +57,9 @@
       background-size: cover;
     }
 
-
+    .LoginTitleClass{
+       font-size: 44px;
+       margin-left: 35%;
+       color: #b3b2e6;
+    }
   }

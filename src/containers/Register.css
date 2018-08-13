@@ -1,0 +1,72 @@
+
+@media all and (min-width: 480px) {
+
+    html{
+        width: 100%;
+        height: 100%;
+        background-image: url("http://www.kinyu-z.net/data/wallpapers/250/1578604.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  
+
+
+     .RegisterTitleClass{
+        font-size: 44px;
+        margin-left: 35%;
+        color: #b3b2e6;
+     }
+
+     .Register {
+        padding: 60px 0;
+      }
+    
+      .Register form {
+        margin: 0 auto;
+        max-width: 418px;
+        border-radius: 3px;
+        height: 200px;
+        align-content: center;
+        background-color: #6674c0;
+        box-shadow: 2px gray;
+        vertical-align: center;
+        opacity: 0.7;
+        padding-top: 12px;
+        background: linear-gradient(#6674c0,#7fa4e0);
+      }
+  
+      .form-group-lg{
+        align-content: center;
+        height: 21%;
+        padding-left: 26%;
+        margin-top: 5%;
+      }
+  
+      .control-label{
+        display: block;
+        min-width: 20%;
+        font-family: fantasy;
+      }
+    
+      .form-control{
+        width: 62%;
+        border-radius: 7px;
+      }
+  
+      .Register button{
+        margin-left: 26%;
+        margin-top: 3%;
+        width: 88px;
+        height: 33px;
+        opacity: 1 !important;
+        background-color: #4e88e5;
+        border: none;
+        border-radius: 7px;
+        color: white;
+        font-weight: bold;
+  
+      }
+
+
+
+}
