@@ -8,7 +8,7 @@ module.exports = {
 plugins: [
     new CleanWebpackPlugin(['app']),
     new HtmlWebpackPlugin({
-      title: 'Minimum-Viable',
+      title: 'ejemplo login todo',
       filename: 'index.html',
       template: './public/index.html',
     }),
