@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router'
 import { configureFakeBackend } from "../helpers/fake-backend";
 import { login } from '../redux/actions/auth';
 
 import "./Login.css";
+import Todo from "./TodoList";
 
   class Login extends React.Component {
   constructor(props) {
@@ -53,20 +55,29 @@ import "./Login.css";
     this.state.submitted = true;
     this.state.isLoggedIn = true;
     
-    const { username, password , isLoggedIn} = this.state;
+    const { email, password , isLoggedIn} = this.state;
    
-
-
-    if (username && password) {
+    
+  
+    if (email && password) {
      let response = configureFakeBackend( this.state ,'Authenticate');
      console.log('respuesta', response);
     }
-
-  
+    this.toggleRoute(e);
+   
   }
+
+  toggleRoute (e) {
+    let alt = (this.state.route === 'Login') ? 'Todo' : 'Todo';
+    this.setState({ route: alt });
+    e.preventDefault();
+}
   
   render() {
-    let alt = (this.state.route === 'Login') ? 'SignUp' : 'Login';
+   /*  if (this.state.isLoggedIn === true) {
+      return <Redirect to={from ||'/Todo'} />
+    } */
+    let alt = (this.state.route === 'Login') ? 'Todo' : 'Login';
     const { email, password, submitted } = this.state;
     return (
        <div className="Login">
@@ -129,7 +140,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onLogin: (email, password) => { dispatch(login(email, password)); },
-      onSignUp: (email, password) => { dispatch(signup(email, password)); }
+      onSignUp: (email, password) => { dispatch(Todo(email, password)); }
   }
 }
 

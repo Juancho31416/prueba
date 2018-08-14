@@ -6,15 +6,16 @@ import Todo from "./containers/TodoList";
 import Register from "./containers/Register";
 import WebFont from 'webfontloader';
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Switch ,Provider } from 'react-redux';
 import Application from './containers/Application';
 import store from './redux';
 
 
 
 ReactDOM.render(
+  
   <Provider store={store}>
-    <Login />
+     <Login /> 
   </Provider>,
 document.getElementById('root')
  

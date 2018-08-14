@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Register from './Register'
 import Login from './Login';
 import Todo from './TodoList';
  
