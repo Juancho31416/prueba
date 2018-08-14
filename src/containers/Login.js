@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { connect } from 'react-redux';
 import { configureFakeBackend } from "../helpers/fake-backend";
+import { login } from '../redux/actions/auth';
 
 import "./Login.css";
 
-export default class Login extends React.Component {
+ export default class Login extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      
+          route:'Login',
           email: '',
           password: '',
-          submitted: false
+          submitted: false,
+          isLoggedIn:false
+
   };
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,6 +36,16 @@ export default class Login extends React.Component {
     
   }
 
+  userLogin (e) {
+    this.props.onLogin(this.state.email, this.state.password);
+    e.preventDefault();
+  }
+
+  toggleRoute (e) {
+    let alt = (this.state.route === 'Login') ? 'SignUp' : 'Login';
+    this.setState({ route: alt });
+    e.preventDefault();
+  }
 
   handleSubmit (e){ 
     e.preventDefault();
@@ -49,6 +63,7 @@ export default class Login extends React.Component {
   }
   
   render() {
+    let alt = (this.state.route === 'Login') ? 'SignUp' : 'Login';
     const { email, password, submitted } = this.state;
     return (
        <div className="Login">
@@ -99,4 +114,20 @@ export default class Login extends React.Component {
       </div> 
     );
   }
+
 }
+ 
+const mapStateToProps = (state, ownProps) => {
+  return {
+      isLoggedIn: state.auth.isLoggedIn
+  };
+}
+/*
+const mapDispatchToProps = (dispatch) => {
+  return {
+      onLogin: (email, password) => { dispatch(login(email, password)); },
+      onSignUp: (email, password) => { dispatch(signup(email, password)); }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login); */

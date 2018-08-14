@@ -1,7 +1,7 @@
-export const login = (username, password) => {
+export const login = (email, password) => {
     return {
         type: 'LOGIN',
-        username: username,
+        email: email,
         password: password
     };
 };
@@ -12,7 +12,7 @@ export const logout = () => {
     };
 };
  
-export const signup = (username, password) => {
+export const signup = (email, password) => {
     return (dispatch) => {
     };
 };
