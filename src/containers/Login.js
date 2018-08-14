@@ -63,7 +63,8 @@ import Todo from "./TodoList";
      let response = configureFakeBackend( this.state ,'Authenticate');
      console.log('respuesta', response);
     }
-    this.toggleRoute(e);
+
+    this.props.onSignUp(0);
    
   }
 
@@ -140,7 +141,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onLogin: (email, password) => { dispatch(login(email, password)); },
-      onSignUp: (email, password) => { dispatch(Todo(email, password)); }
+      onSignUp: (count) => { dispatch(Todo(count)); }
   }
 }
 

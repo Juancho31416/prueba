@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 import { configureFakeBackend } from "../helpers/fake-backend";
 import "./TodoList.css";
 
-export default class Todo extends React.Component{
+ class Todo extends React.Component{
+  userLogout(e) {
+    this.props.onLogout();
+    e.preventDefault();
+}
+
+
     constructor(props){
       super(props)
       this.state = {
@@ -77,5 +83,19 @@ export default class Todo extends React.Component{
     }
   }
   
-  
-  ;
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      
+    };
+}
+ 
+const mapDispatchToProps = (dispatch) => {
+    return {
+      
+      onList: () => { dispatch(Todo()); },
+      onLogout: () => { dispatch(logout()); }
+    }
+}
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);
