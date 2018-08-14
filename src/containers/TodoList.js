@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { connect } from 'react-redux';
+import { configureFakeBackend } from "../helpers/fake-backend";
 import "./TodoList.css";
 
 export default class Todo extends React.Component{

@@ -6,7 +6,7 @@ import { login } from '../redux/actions/auth';
 
 import "./Login.css";
 
- export default class Login extends React.Component {
+  class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,7 +42,7 @@ import "./Login.css";
   }
 
   toggleRoute (e) {
-    let alt = (this.state.route === 'Login') ? 'SignUp' : 'Login';
+    let alt = (this.state.route === 'Login') ? 'Todo' : 'Login';
     this.setState({ route: alt });
     e.preventDefault();
   }
@@ -50,9 +50,12 @@ import "./Login.css";
   handleSubmit (e){ 
     e.preventDefault();
     
-    this.setState({ submitted: true });
-    const { username, password } = this.state;
+    this.state.submitted = true;
+    this.state.isLoggedIn = true;
+    
+    const { username, password , isLoggedIn} = this.state;
    
+
 
     if (username && password) {
      let response = configureFakeBackend( this.state ,'Authenticate');
@@ -122,7 +125,7 @@ const mapStateToProps = (state, ownProps) => {
       isLoggedIn: state.auth.isLoggedIn
   };
 }
-/*
+
 const mapDispatchToProps = (dispatch) => {
   return {
       onLogin: (email, password) => { dispatch(login(email, password)); },
@@ -130,4 +133,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login); */
+export default connect(mapStateToProps, mapDispatchToProps)(Login); 

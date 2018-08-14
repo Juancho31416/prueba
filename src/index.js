@@ -13,10 +13,10 @@ import store from './redux';
 
 
 ReactDOM.render(
-  <Login />,
-  //<Todo />,
-  //<Register />,
-  document.getElementById('root')
+  <Provider store={store}>
+    <Login />
+  </Provider>,
+document.getElementById('root')
  
 );
 
