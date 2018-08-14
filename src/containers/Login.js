@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+import { Link, browserHistory } from 'react-router'
 import { configureFakeBackend } from "../helpers/fake-backend";
 import { login } from '../redux/actions/auth';
+import { routerMiddleware, push } from 'react-router-redux'
+ 
 
 import "./Login.css";
 import Todo from "./TodoList";
@@ -22,8 +25,12 @@ import Todo from "./TodoList";
   };
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
+
+
+  
   validateForm() {
 
     return this.state.email.length > 0 && this.state.password.length > 0;
@@ -59,12 +66,12 @@ import Todo from "./TodoList";
    
     
   
-    if (email && password) {
+    /* if (email && password) {
      let response = configureFakeBackend( this.state ,'Authenticate');
      console.log('respuesta', response);
-    }
-
-    this.props.onSignUp(0);
+    } */
+      
+    
    
   }
 
@@ -117,13 +124,7 @@ import Todo from "./TodoList";
             Login
           </Button>
 
-          <Button
-            block
-            bsSize="large"
-              
-          >
-            Register
-          </Button>
+          
           </div>
         </form>
       </div> 
@@ -131,6 +132,8 @@ import Todo from "./TodoList";
   }
 
 }
+
+
  
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -141,7 +144,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onLogin: (email, password) => { dispatch(login(email, password)); },
-      onSignUp: (count) => { dispatch(Todo(count)); }
+      onSignUp: (count) => { Redirect('/todo'); }
   }
 }
 
